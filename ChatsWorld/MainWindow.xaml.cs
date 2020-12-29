@@ -23,6 +23,8 @@ namespace ChatsWorld
         public MainWindow()
         {
             InitializeComponent();
+
+            this.DataContext = new WindowViewModel(this);
         }
     }
 }
