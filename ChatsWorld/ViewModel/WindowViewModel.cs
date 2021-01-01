@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace ChatsWorld
 {
@@ -29,6 +30,16 @@ namespace ChatsWorld
         #region Public Member
 
         /// <summary>
+        /// Windows Minimum Height
+        /// </summary>
+        public double WindowMinimumHeight { get; set; } = 400;
+
+        /// <summary>
+        /// Windows Minimum Width
+        /// </summary>
+        public double WindowMinimumWidth { get; set; } = 400;
+
+        /// <summary>
         /// size of the reize border arround the window
         /// </summary>
         public int ResizeBorder { get; set; } = 6;
@@ -37,6 +48,13 @@ namespace ChatsWorld
         /// size of the reize border arround the window,talking into account the outer margin
         /// </summary>
         public Thickness ResizeBorderThickness { get { return new Thickness(ResizeBorder + OuterMarginSize); } }
+
+
+        /// <summary>
+        /// The Padding of the inner content of the main window
+        /// </summary>
+        public Thickness InnerContentPadding { get { return new Thickness(ResizeBorder); } }
+
 
         /// <summary>
         /// The margin arround the window to allow drop shadow
@@ -87,6 +105,14 @@ namespace ChatsWorld
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
         #endregion
 
+        #region Window Command
+
+        public ICommand MinimizeCommand { get; set; }
+        public ICommand MaximizeCommand { get; set; }
+        public ICommand CloseCommand { get; set; }
+        public ICommand MenuCommand { get; set; }
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -105,11 +131,43 @@ namespace ChatsWorld
                 OnPropertyChanged(nameof(OuterMarginSizeThickness));
                 OnPropertyChanged(nameof(WindowRadius));
                 OnPropertyChanged(nameof(WindowCornerRadius));
-
             };
+
+
+            //Create Command
+
+            MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
+            MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
+            CloseCommand = new RelayCommand(() => mWindow.Close());
+            MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetMousePosistion()));
+
+            //Fix Window resize issue
+            var resizer = new WindowResizer(mWindow);
         }
 
 
+        #endregion
+
+        #region Private Helpers
+
+        private Point GetMousePosistion()
+        {
+            //position of the mouse relative to the window
+            var position = Mouse.GetPosition(mWindow);
+
+
+            if (mWindow.WindowState == WindowState.Maximized)
+            {
+                return new Point(position.X, position.Y);
+            }
+            else
+            {
+                // if Window is not in maximize state than add Left and top postion of the window
+                return new Point(position.X + mWindow.Left, position.Y + mWindow.Top);
+            }
+
+
+        }
         #endregion
     }
 }
