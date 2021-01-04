@@ -39,10 +39,12 @@ namespace ChatsWorld
         /// </summary>
         public double WindowMinimumWidth { get; set; } = 400;
 
+        // public bool Borderless { get { return (mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked); } }
+
         /// <summary>
         /// size of the reize border arround the window
         /// </summary>
-        public int ResizeBorder { get; set; } = 6;
+        public int ResizeBorder { get; set; } = 0;
 
         /// <summary>
         /// size of the reize border arround the window,talking into account the outer margin
@@ -53,7 +55,8 @@ namespace ChatsWorld
         /// <summary>
         /// The Padding of the inner content of the main window
         /// </summary>
-        public Thickness InnerContentPadding { get { return new Thickness(ResizeBorder); } }
+       // public Thickness InnerContentPadding { get { return new Thickness(ResizeBorder); } }
+        public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
 
         /// <summary>
@@ -103,6 +106,12 @@ namespace ChatsWorld
         public int TitleHeight { get; set; } = 42;
 
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
+
+
+        /// <summary>
+        /// The Current Page of the application
+        /// </summary>
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
         #endregion
 
         #region Window Command

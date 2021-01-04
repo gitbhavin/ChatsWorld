@@ -49,9 +49,6 @@
                                         <!--Title Bar-->
                                         <RowDefinition Height="{Binding TitleHeightGridLength,FallbackValue=42}"/>
 
-                                        <!--Title Bar DropShadow-->
-                                        <RowDefinition Height="auto"/>
-
                                         <!--window content-->
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
@@ -77,11 +74,13 @@
                                         </Button>
 
                                         <!-- Title-->
-                                        <Viewbox Grid.Column="1">
-                                            <TextBlock Text="{Binding 
-                                                                   RelativeSource={RelativeSource Mode=TemplatedParent},
-                                                                   Path=Title,FallbackValue='Welcome Friends!'}" 
-                                                       Style="{StaticResource HeaderText}"/>
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="5">
+                                            <StackPanel>
+                                                <TextBlock FontFamily="{StaticResource LatoBold}" FontSize="{StaticResource FontSizeRegular}" Margin="0 0 0 -5">
+                                                    <Run Text="C" Foreground="{StaticResource WordOrangeBrush}"/><Run Text="H" Foreground="{StaticResource WrodBlueBrush}"/><Run Text="A" Foreground="{StaticResource WordRedBrush}"/><Run Text="T" Foreground="{StaticResource WordGreenBrush}" /><Run Text="s" Foreground="{StaticResource WordPurpleBrush}" />
+                                                </TextBlock>
+                                                <TextBlock Text="by Packs" FontSize="{StaticResource FontSizeSmall}" Foreground="{StaticResource ForegroundDarkBrush}" TextAlignment="Center"/>
+                                            </StackPanel>
                                         </Viewbox>
 
                                         <!-- Windows Button-->
@@ -92,29 +91,9 @@
                                         </StackPanel>
                                     </Grid>
 
-                                    <!--Drop Shadow -->
-                                    <Border Grid.Row="1" Height="6" BorderThickness="0 0.2 0 0">
-                                        <!-- Under line-->
-                                        <Border.BorderBrush>
-                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="0.0"/>
-                                                <GradientStop Color="{StaticResource ForegroundMain}" Offset="0.5"/>
-                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="1.0"/>
-                                            </LinearGradientBrush>
-                                        </Border.BorderBrush>
-
-                                        <!-- Drop Shadow-->
-                                        <Border.Background>
-                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                                <GradientStop Color="{StaticResource BackgroundVeryLight}" Offset="0.0"/>
-                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="1.0"/>
-                                            </LinearGradientBrush>
-                                        </Border.Background>
-
-                                    </Border>
                                     
                                     <!-- Page Content-->
-                                    <Border Grid.Row="2" Padding="{Binding InnerContentPadding}">
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
                                         <ContentPresenter Content="{TemplateBinding Content}"/>
                                     </Border>
                                 </Grid>
@@ -135,6 +114,6 @@
     </WindowChrome.WindowChrome>
 
     <Grid Background="{StaticResource ForegroundLightBrush}">
-       
+        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
     </Grid>
 </Window>
