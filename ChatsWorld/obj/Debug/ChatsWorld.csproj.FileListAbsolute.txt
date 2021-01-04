@@ -3,7 +3,6 @@ C:\Users\bhavi\OneDrive\Desktop\Bhavin\WPF\Practicing\AngleSIx\ChatsWorld\ChatsW
 C:\Users\bhavi\OneDrive\Desktop\Bhavin\WPF\Practicing\AngleSIx\ChatsWorld\ChatsWorld\bin\Debug\ChatsWorld.pdb
 C:\Users\bhavi\OneDrive\Desktop\Bhavin\WPF\Practicing\AngleSIx\ChatsWorld\ChatsWorld\bin\Debug\Microsoft.Windows.Shell.dll
 C:\Users\bhavi\OneDrive\Desktop\Bhavin\WPF\Practicing\AngleSIx\ChatsWorld\ChatsWorld\bin\Debug\Microsoft.Windows.Shell.pdb
-C:\Users\bhavi\OneDrive\Desktop\Bhavin\WPF\Practicing\AngleSIx\ChatsWorld\ChatsWorld\obj\Debug\ChatsWorld.csprojAssemblyReference.cache
 C:\Users\bhavi\OneDrive\Desktop\Bhavin\WPF\Practicing\AngleSIx\ChatsWorld\ChatsWorld\obj\Debug\MainWindow.g.cs
 C:\Users\bhavi\OneDrive\Desktop\Bhavin\WPF\Practicing\AngleSIx\ChatsWorld\ChatsWorld\obj\Debug\App.g.cs
 C:\Users\bhavi\OneDrive\Desktop\Bhavin\WPF\Practicing\AngleSIx\ChatsWorld\ChatsWorld\obj\Debug\GeneratedInternalTypeHelper.g.cs
