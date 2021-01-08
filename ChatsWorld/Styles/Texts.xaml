@@ -78,7 +78,7 @@
         <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}"/>
         <Setter Property="BorderBrush" Value="{StaticResource WrodBlueBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
-        <Setter Property="local:PasswordBoxProperties.MonitorPassword" Value="True"/>
+        <Setter Property="local:MonitorPasswordProperty.Value" Value="True"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -98,20 +98,21 @@
                                    Text="{TemplateBinding Tag}"
                                    FontFamily="{StaticResource LatoThin}"
                                    Padding="{TemplateBinding Padding}"
+                                   Visibility="{TemplateBinding local:HasTextProperty.Value,Converter={local:BooleanToVisibilityConverter}}"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                    Foreground="{StaticResource ForegroundDarkBrush}"
                                    >
-                            <TextBlock.Style>
+                            <!--<TextBlock.Style>
                                 <Style TargetType="{x:Type TextBlock}" >
                                     <Setter Property="Visibility" Value="Collapsed"/>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding (local:PasswordBoxProperties.HasText),RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+                                        <DataTrigger Binding="{Binding (local:HasTextProperty.Value),RelativeSource={RelativeSource TemplatedParent}}" Value="False">
                                             <Setter Property="Visibility" Value="Visible"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
-                            </TextBlock.Style>
+                            </TextBlock.Style>-->
 
                         </TextBlock>
 
