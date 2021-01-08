@@ -10,6 +10,7 @@ none
 false
 DEBUG;TRACE
 C:\Users\bhavi\OneDrive\Desktop\Bhavin\WPF\Practicing\AngleSIx\ChatsWorld\ChatsWorld\App.xaml
+<<<<<<< HEAD
 11151548125
 
 61434861427
@@ -17,4 +18,13 @@ C:\Users\bhavi\OneDrive\Desktop\Bhavin\WPF\Practicing\AngleSIx\ChatsWorld\ChatsW
 MainWindow.xaml;
 
 True
+=======
+7550430264
+
+16-65521483
+15-1914490850
+MainWindow.xaml;Pages\LoginPage.xaml;Styles\Colors.xaml;Styles\Buttons.xaml;Styles\Windows.xaml;Styles\Texts.xaml;Styles\Fonts.xaml;
+
+False
+>>>>>>> WorkingBranch
 
